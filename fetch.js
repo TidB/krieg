@@ -5,6 +5,8 @@ let sessionid = null;
 let profileURI = null;
 let tabURIparam = 'playermatchhistory';
 
+let result = '';
+
 const maxRetries = 0;
 
 const initVariables = () => {
@@ -74,7 +76,7 @@ const fetchMatchHistoryPage = (recursively, page, retryCount) => {
             continue_token = null;
         }
 
-        console.log(json.html);
+        result += json.html;
 
         if (recursively && continue_token) {
             console.log(`<!--Loaded ${page ? page + 1 : 1} page${page ? 's' : ''}...-->`);
@@ -103,3 +105,4 @@ const fetchMatchHistoryPage = (recursively, page, retryCount) => {
 
 initVariables();
 fetchMatchHistory();
+console.log(result);
