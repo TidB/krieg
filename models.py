@@ -1,6 +1,7 @@
 import dataclasses
 import datetime
 
+
 @dataclasses.dataclass(init=False)
 class Match:
     id: int
@@ -52,11 +53,27 @@ class Match:
     leave_reason: int = None
     connection_time: datetime.datetime = None
 
+
 MATCH_FIELDS = {field.name: field.type for field in dataclasses.fields(Match)}
+
 
 @dataclasses.dataclass
 class Result:
     matches_played: int = 0
+
+    wins: int = 0
+    losses: int = 0
+    ratio: float = 0.0
+
+    rating_won: int = 0
+    rating_lost: int = 0
+    avg_rating_won: float = 0.0
+    avg_rating_lost: float = 0.0
+    zero_rating_wins: int = 0
+    zero_rating_losses: int = 0
+    zero_rating_wins_ratio: float = 0.0
+    zero_rating_losses_ratio: float = 0.0
+
     current_rating: int = 0
     min_rating: int = 5000
     max_rating: int = 0

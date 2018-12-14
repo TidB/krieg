@@ -84,6 +84,7 @@ const fetchMatchHistoryPage = (recursively, page, retryCount) => {
         } else {
             if (!continue_token) {
                 document.querySelector('#inventory_history_loading').style.display = 'none';
+                console.log(result);
             } else {
                 document.querySelector('#load_more_button').style.display = 'inline-block';
                 document.querySelector('#inventory_history_loading').style.display = 'none';
@@ -105,4 +106,3 @@ const fetchMatchHistoryPage = (recursively, page, retryCount) => {
 
 initVariables();
 fetchMatchHistory();
-console.log(result);
